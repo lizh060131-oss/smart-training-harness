@@ -7,7 +7,7 @@
   python main.py --task C --data data/cmapss_jsonl --out 1/runs_v2/cmapss
 
 环境变量（可选，LLM 顾问）：
-  PETRIO_API_KEY / PETRIO_BASE_URL / PETRIO_MODEL（OpenAI 兼容 PyTRIO 服务）
+  PYTRIO_API_KEY / PYTRIO_BASE_URL / PYTRIO_MODEL（兼容 PETRIO_ 前缀）
 未配置时使用规则规划器，运行记录中如实标注 llm_used=false。
 """
 import argparse

@@ -4,14 +4,16 @@
 
 ## 运行
 
-需要 Python 3.11，或使用项目的 Dockerfile。训练数据与官方起始检查点从赛题平台获取。准备包含 `batchNN.jsonl` 的数据目录后，从仓库根目录运行：
+V4 镜像默认在 CPU 上依次为 A、B、C 运行 10 轮。训练数据和起始检查点由平台挂载。模型输出位于 `/model/<任务>/`，训练记录位于 `/output/<任务>/`。容器挂载、预测和模型交付详见[镜像接口](1/harness_v2/ADAPTER.md)。
+
+使用 Python 3.11 可在本地联调单个任务：
 
 ```bash
 python -m pip install -r 1/harness_v2/requirements.txt
 python 1/harness_v2/main.py --task A --data <批次目录> --baseline <官方检查点.npz> --out <输出目录> --rounds 10
 ```
 
-`--task` 可选 A、B、C，对应的官方检查点须与任务配套。运行时注入 `PETRIO_BASE_URL`、`PETRIO_API_KEY` 和 `PETRIO_MODEL`，启用实时 SwanLab 时再配置 `SWANLAB_API_KEY`。输出目录包含各轮训练检查点、`engine_log.jsonl` 与 `summary.json`。
+`--task` 可选 A、B、C，对应的官方检查点须与任务配套。运行时可配置 `PYTRIO_BASE_URL`、`PYTRIO_API_KEY` 和 `PYTRIO_MODEL`，兼容 `PETRIO_` 前缀。启用实时 SwanLab 时再配置 `SWANLAB_API_KEY`。输出目录包含各轮训练检查点、`engine_log.jsonl` 与 `summary.json`。
 
 - [运行、Docker 打包和独立验证](docs/运行说明.md)
 - [系统设计与门控方法](docs/设计说明.md)

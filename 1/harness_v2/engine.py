@@ -7,7 +7,7 @@
 第一轮必须从官方基线检查点起步；后续轮从上一轮被采纳的检查点续训。
 特征标准化/目标缩放由检查点冻结（官方规则），引擎不重拟合。
 
-LLM 顾问：设置 PETRIO_API_KEY / PETRIO_BASE_URL / PETRIO_MODEL 后由 PyTRIO
+LLM 顾问：设置 PYTRIO_API_KEY / PYTRIO_BASE_URL / PYTRIO_MODEL（兼容 PETRIO_ 前缀）后由 PyTRIO
 千问模型规划实验（OpenAI 兼容接口，stdlib urllib 实现，无第三方依赖）；
 未配置时回退到规则规划器并如实记录。
 """
@@ -217,7 +217,9 @@ def eval_checkpoint(ckpt_path, data_path, task, classes, prepared=None, bearing_
 # ---------------------------------------------------------------------------
 
 def llm_chat(cfg, messages, timeout=90, *, max_tokens=None):
-    url = cfg["base_url"].rstrip("/") + "/chat/completions"
+    url = cfg["base_url"].rstrip("/")
+    if not url.endswith("/chat/completions"):
+        url += "/chat/completions"
     payload = {"model": cfg["model"], "messages": messages, "temperature": 0.2}
     if max_tokens is not None:
         payload["max_tokens"] = max_tokens
@@ -230,16 +232,26 @@ def llm_chat(cfg, messages, timeout=90, *, max_tokens=None):
     return body["choices"][0]["message"]["content"]
 
 
-def llm_available():
-    return bool(os.environ.get("PETRIO_API_KEY"))
-
-
 def get_llm_cfg():
-    return {
-        "api_key": os.environ.get("PETRIO_API_KEY", ""),
-        "base_url": os.environ.get("PETRIO_BASE_URL", ""),
-        "model": os.environ.get("PETRIO_MODEL", "qwen3.5-4b"),
+    def env(suffix):
+        return (os.environ.get(f"PYTRIO_{suffix}", "").strip()
+                or os.environ.get(f"PETRIO_{suffix}", "").strip())
+
+    pytrio = {
+        "api_key": env("API_KEY"),
+        "base_url": env("BASE_URL"),
+        "model": env("MODEL"),
     }
+    for key, endpoint, model in (
+        ("SAMPLER_API_KEY", "SAMPLER_ENDPOINT", "SAMPLER_MODEL"),
+        ("HARNESS_LLM_KEY", "HARNESS_LLM_ENDPOINT", "HARNESS_LLM_MODEL"),
+    ):
+        cfg = {"api_key": os.environ.get(key, "").strip(),
+               "base_url": os.environ.get(endpoint, "").strip(),
+               "model": os.environ.get(model, "").strip()}
+        if all(cfg.values()):
+            return cfg
+    return pytrio
 
 
 # ---------------------------------------------------------------------------
@@ -253,7 +265,16 @@ class Planner:
         self.task = task
         self.classes = classes or []
         self.tuning = tuning or {}
-        self.llm = llm or (get_llm_cfg() if llm_available() else None)
+        self.llm = llm
+        self.llm_config_error = None
+        if self.llm is None:
+            cfg = get_llm_cfg()
+            if cfg["api_key"]:
+                missing = [f"PYTRIO_{field.upper()}" for field in ("base_url", "model") if not cfg[field]]
+                if missing:
+                    self.llm_config_error = "PyTRiO 配置缺少 " + ", ".join(missing)
+                else:
+                    self.llm = cfg
         self.policy_dir = policy_dir
         self.audit = audit
 
@@ -288,7 +309,7 @@ class Planner:
         return exps[:4]
 
     def plan(self, round_no, diag, prev_results, min_experiments=3):
-        self.llm_error = None
+        self.llm_error = self.llm_config_error
         self.plan_source = "rules"
         self.tool_protocol = None
         rules = self._rules(diag)
@@ -709,7 +730,8 @@ class RoundEngine:
                   "profile": self.profile_path, "baseline": checkpoint_digest(self.baseline_ckpt),
                   "rounds": self.rounds, "batches": self.batch_files,
                   "llm": {"enabled": bool(self.planner.llm),
-                          "model": self.planner.llm["model"] if self.planner.llm else None},
+                          "model": self.planner.llm["model"] if self.planner.llm else None,
+                          "configuration_error": self.planner.llm_config_error},
                   "swanlab": {"error": self.swanlab.error}})
         self.swanlab.log({"config/rounds": self.rounds,
                           "config/val_ratio": self.val_ratio,

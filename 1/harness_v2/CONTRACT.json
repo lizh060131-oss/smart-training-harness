@@ -1,0 +1,33 @@
+{
+  "format": "zhixun-engine.harness-contract.v1",
+  "version": "4",
+  "entry": {
+    "command": ["python", "-u", "/app/harness/entry.py"],
+    "mode_env": "HARNESS_MODE",
+    "modes": ["loop", "serve", "selftest"],
+    "default_mode": "loop",
+    "default_rounds": 10,
+    "default_tasks": ["A", "B", "C"]
+  },
+  "data": {
+    "env": "HARNESS_DATA",
+    "default": "/data",
+    "expected_layout": ["<root>/<TASK>/batchNN.jsonl", "<root>/<TASK>/train.jsonl"]
+  },
+  "train": {
+    "parent_checkpoint_candidates": ["/previous/<TASK>/checkpoint.npz", "/previous/model/<TASK>/checkpoint.npz", "/previous/output/model/<TASK>/checkpoint.npz", "/previous/checkpoint.npz"],
+    "artifact": {"path": "/model/<TASK>/checkpoint.npz", "sidecar": "/model/<TASK>/manifest.json", "also_written_to": "/output/model/<TASK>/checkpoint.npz"},
+    "evidence_per_run": ["/output/<TASK>/engine_log.jsonl", "/output/<TASK>/summary.json"]
+  },
+  "tasks": {
+    "A": {"kind": "classification", "primary_metric": "macro_f1"},
+    "B": {"kind": "regression", "unit": "minutes", "primary_metric": "rmse"},
+    "C": {"kind": "regression", "unit": "cycles", "primary_metric": "rmse"}
+  },
+  "predict": {
+    "mode": "serve",
+    "callable": "baselines.predict.predict(model, inputs)",
+    "input": {"required": ["inputs"], "optional": ["task"]},
+    "output": {"classification": "outputs[].label, outputs[].score", "regression": "outputs.value"}
+  }
+}

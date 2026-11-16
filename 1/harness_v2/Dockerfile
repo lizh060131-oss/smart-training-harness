@@ -13,10 +13,12 @@ RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ -r req
 COPY baselines/ ./baselines/
 COPY configs/ ./configs/
 COPY engine.py main.py pytrio_tools.py bearing_gate.py ./
+COPY harness/ ./harness/
+COPY ADAPTER.md CONTRACT.json ./
 
-# 运行时注入 SWANLAB_API_KEY、PETRIO_API_KEY、PETRIO_BASE_URL 和 PETRIO_MODEL。
-ENV SWANLAB_MODE=cloud \
-    SWANLAB_PROJECT_NAME=smart-training-harness \
+# PyTRiO 和 SwanLab 凭证由运行环境注入。
+ENV SWANLAB_PROJECT_NAME=smart-training-harness \
     PYTHONUTF8=1
 
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["python", "-u", "/app/harness/entry.py"]
+CMD []

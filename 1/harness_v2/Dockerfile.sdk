@@ -1,0 +1,23 @@
+ARG BASE_IMAGE=python:3.11-slim
+FROM ${BASE_IMAGE}
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt
+
+COPY vendor/contest-harness-sdk-1.0.2.tar.gz /tmp/contest-harness-sdk-1.0.2.tar.gz
+RUN tar -xzf /tmp/contest-harness-sdk-1.0.2.tar.gz -C /tmp \
+    && pip install --no-build-isolation --no-deps /tmp/contest-harness-sdk-1.0.2 \
+    && cp /tmp/contest-harness-sdk-1.0.2/template/harness.py /app/harness.py \
+    && rm -rf /tmp/contest-harness-sdk-1.0.2 /tmp/contest-harness-sdk-1.0.2.tar.gz
+
+COPY baselines/ ./baselines/
+COPY configs/ ./configs/
+COPY contest_submission.py pytrio_tools.py ./
+
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1
+ENTRYPOINT ["python3", "/app/harness.py"]

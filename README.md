@@ -2,9 +2,15 @@
 
 第二届北京市大学生「人工智能+」创新大赛题目九的 Harness 源码。系统从赛方检查点开始，在 CPU 上对气体识别、轴承剩余寿命和发动机剩余寿命模型进行逐批续训。流程包括漂移诊断、受限 PyTRiO 工具调用、候选训练、上线或回滚和实验记录。
 
-## 运行
+## Image6 优化版
 
-当前参赛版本为 V5，使用赛方 Harness SDK 1.0.2。平台按轮提供公开数据和父检查点，Harness 通过 SDK 调用 PyTRiO，并提交真实续训得到的候选和选模理由。构建和本地协议验证见 [V5 SDK 接入说明](docs/SDK接入说明.md)。
+[Image6 优化版源码和构建说明](image6-optimized/) 记录了 B 的短训策略、A/B/C 的本地兼容性检查和留出对照。优化版的平台试运行待验证。
+
+[打开本地十轮对照的 SwanLab 实验记录](https://swanlab.cn/@lizh-131/smart-training-harness/runs/4c14e4f3e55a/chart)
+
+## V5 运行说明
+
+V5 使用赛方 Harness SDK 1.0.2。平台按轮提供公开数据和父检查点，Harness 通过 SDK 调用 PyTRiO，并提交真实续训得到的候选和选模理由。构建和本地协议验证见 [V5 SDK 接入说明](docs/SDK接入说明.md)。
 
 使用 Python 3.11 可在本地联调单个任务：
 

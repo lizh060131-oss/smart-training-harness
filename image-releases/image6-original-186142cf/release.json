@@ -1,0 +1,111 @@
+{
+  "version": "image6-original-186142cf",
+  "variant": "image6-original",
+  "tag": "smart-training-harness:sdk-1.0.2-v1",
+  "sdk_version": "1.0.2",
+  "image_id": "sha256:7aff089dbd168e2e1583488f0251fec52246b6836978df45f9d53cae42911c46",
+  "archive_sha256": "186142cf2bc70a95dd2472c09b17316e21e2d4a725b827d37a00bc9a12b5849d",
+  "image_config_sha256": "8b12283fa73bde85d3788a5b01db20ea5afd6a0e2e37140dfe35d036c93cd213",
+  "evaluation": "原版 Image6 的本地 Docker 验证。使用官方公开数据、官方初始检查点和模拟宿主，模型回复固定为 conservative。B 第 2 轮复用第 1 轮选定检查点及同一公开验证集。B 以分钟计，C 以循环计。",
+  "startup_probe": {
+    "dataset_key": "D",
+    "error": "START_INVALID"
+  },
+  "sources": {
+    "README.md": "fb03c661e453472af1fd2711511f40209bb7c721c93d18b22e9a6e05a90d7386",
+    "baselines/__init__.py": "3363d6112a78e5b4de3508da13e543708fc6a9019c65f3c8bcecb5178a321d7a",
+    "baselines/data.py": "309e804a3795f1227e454738e3b20e3232586d4935f6992996cac786b14d93cc",
+    "baselines/model.py": "325026d80747eb36f39c8df1be02b640ae21b3cd082827c66aacbdf273dd61c5",
+    "baselines/predict.py": "80e6787cd862dfefd85cd6bfcd73b5577dd90e202dd3d5bb9f18a52761807452",
+    "baselines/requirements.txt": "e77e7045d01a9431264f9262c6b199d8e7988c139276a5266a3cf689588ad66e",
+    "baselines/train.py": "cceeba5e4d3b34ede00bd1f9c0969f9f151aa06f721014cbf41a70ecb51e5aa9",
+    "bearing_gate.py": "bacfdef263cba0dbc008e7e23eaf0e6f28ba90ddfc720d1e289e6b3bd87d95ad",
+    "configs/A.json": "a358949911cfcb38b5d483acad41843243fe264b26f0470e1c64c495da4ab202",
+    "configs/B.json": "ecbee0f2dd0a6ec9b262f1fd830f8031b79b202cebfd56c12e47f10b19c87b06",
+    "configs/C.json": "6081427007d8cebac892517ffd5d70558f9edd8d554172caa2c58c9f65e556ce",
+    "contest_submission.py": "4c8ff34295d1bebbf415d432004c98af8220f30b12e6816c91aec6a2c6c5e3fd",
+    "engine.py": "c0e74b4e8a9608c56d13ec8aa5e8e40a17eee7fbb73bf9bbeb3d849f2174f601",
+    "harness.py": "6ef17e7dfd73558daf8464f7be8b1e963ccf103c76638c623911ec5c334c93f5",
+    "main.py": "2bddaae8e2ffb5baf05026df9481961204343ff142c48cad4ac3789d89adae32",
+    "pytrio_tools.py": "23c6a3a0f172fdc008fe3f6c3bf6949b575b3dc78c31564d911b16f06c59136c",
+    "requirements.txt": "21761a8a2c15af0ff0cb222498492a25afe4924bfb062005329ff49787d3568a"
+  },
+  "public_validation_rounds": [
+    {
+      "task": "A",
+      "round": 1,
+      "prediction_count": 1244,
+      "train_rows": 445,
+      "steps": [
+        80,
+        92
+      ],
+      "parent": {
+        "accuracy": 0.8786173633440515,
+        "macro_f1": 0.7140297220788709
+      },
+      "selected": {
+        "accuracy": 0.8858520900321544,
+        "macro_f1": 0.7187354630392222
+      },
+      "adopted": 1
+    },
+    {
+      "task": "B",
+      "round": 1,
+      "prediction_count": 1679,
+      "train_rows": 7032,
+      "steps": [
+        825,
+        881
+      ],
+      "parent": {
+        "mae": 563.1058414514887,
+        "rmse": 681.1598326043113
+      },
+      "selected": {
+        "mae": 545.6377231695859,
+        "rmse": 657.9026376035969
+      },
+      "adopted": 1
+    },
+    {
+      "task": "B",
+      "round": 2,
+      "prediction_count": 1679,
+      "train_rows": 7032,
+      "steps": [
+        881,
+        909
+      ],
+      "parent": {
+        "mae": 545.6377231695859,
+        "rmse": 657.9026376035969
+      },
+      "selected": {
+        "mae": 545.6377231695859,
+        "rmse": 657.9026376035969
+      },
+      "adopted": 0
+    },
+    {
+      "task": "C",
+      "round": 1,
+      "prediction_count": 23049,
+      "train_rows": 113089,
+      "steps": [
+        6630,
+        7072
+      ],
+      "parent": {
+        "mae": 38.89982982666355,
+        "rmse": 52.86857256611151
+      },
+      "selected": {
+        "mae": 38.10993084811997,
+        "rmse": 51.83193632662444
+      },
+      "adopted": 1
+    }
+  ]
+}

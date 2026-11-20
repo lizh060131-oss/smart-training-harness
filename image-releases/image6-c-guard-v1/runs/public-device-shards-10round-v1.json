@@ -1,0 +1,196 @@
+{
+  "version": "image6-c-guard-v1",
+  "archive_sha256": "c24f48b8dc0b77fba655b98e273e9a17c6e65e5e564b3ebd5dbf832467834c83",
+  "image_id": "sha256:36452a1589c5e3606bb0e3bbe83d78c82ba265adeef8114e3d2dc479e952d7c5",
+  "run_id": "public-device-shards-10round-v1",
+  "scope": "local-public-synthetic-replay",
+  "status": "completed",
+  "rounds": [
+    {
+      "round": 1,
+      "metrics": {
+        "C/original/mae": 38.07304675610488,
+        "C/original/rmse": 52.55416179658881,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 2.0041008999996848,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 1,
+        "C/guard/elapsed_seconds": 2.1882463000001735,
+        "C/guard/groups_checked": 5,
+        "C/guard/state_bytes": 138602,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 2,
+      "metrics": {
+        "C/original/mae": 37.89215486942086,
+        "C/original/rmse": 52.38377476329495,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 3.271188400000028,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 3.5298353999996834,
+        "C/guard/groups_checked": 10,
+        "C/guard/state_bytes": 248368,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 3,
+      "metrics": {
+        "C/original/mae": 37.736267405401314,
+        "C/original/rmse": 51.930719615932695,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 4.274110700000165,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 4.424385100000109,
+        "C/guard/groups_checked": 13,
+        "C/guard/state_bytes": 303246,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 4,
+      "metrics": {
+        "C/original/mae": 38.161830432684084,
+        "C/original/rmse": 51.758169605207506,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 6.316854300000159,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 6.570679999999811,
+        "C/guard/groups_checked": 18,
+        "C/guard/state_bytes": 413060,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 5,
+      "metrics": {
+        "C/original/mae": 38.07923963389446,
+        "C/original/rmse": 51.702437533203806,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 7.3940450000000055,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 8.877642400000695,
+        "C/guard/groups_checked": 22,
+        "C/guard/state_bytes": 495337,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 6,
+      "metrics": {
+        "C/original/mae": 38.07923963389446,
+        "C/original/rmse": 51.702437533203806,
+        "C/original/adopted": 0,
+        "C/original/elapsed_seconds": 9.864136199999848,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 9.365589899999577,
+        "C/guard/groups_checked": 27,
+        "C/guard/state_bytes": 605162,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 7,
+      "metrics": {
+        "C/original/mae": 38.22056942061332,
+        "C/original/rmse": 51.773046667556144,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 9.88329319999957,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 10.6236600000002,
+        "C/guard/groups_checked": 31,
+        "C/guard/state_bytes": 687389,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 8,
+      "metrics": {
+        "C/original/mae": 37.84817245174799,
+        "C/original/rmse": 51.61679998443711,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 11.686956200000168,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 11.571603999999752,
+        "C/guard/groups_checked": 36,
+        "C/guard/state_bytes": 797109,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 9,
+      "metrics": {
+        "C/original/mae": 37.766600844527154,
+        "C/original/rmse": 51.59153289095017,
+        "C/original/adopted": 1,
+        "C/original/elapsed_seconds": 12.675590699999702,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 12.546279199999844,
+        "C/guard/groups_checked": 40,
+        "C/guard/state_bytes": 879267,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    },
+    {
+      "round": 10,
+      "metrics": {
+        "C/original/mae": 37.766600844527154,
+        "C/original/rmse": 51.59153289095017,
+        "C/original/adopted": 0,
+        "C/original/elapsed_seconds": 13.963752499999828,
+        "C/guard/mae": 38.549877866234254,
+        "C/guard/rmse": 52.63743980040203,
+        "C/guard/adopted": 0,
+        "C/guard/elapsed_seconds": 579.3716345000003,
+        "C/guard/groups_checked": 45,
+        "C/guard/state_bytes": 989024,
+        "checks/ab_bytes_both_replies": 1,
+        "checks/gate_regressions_passed": 1,
+        "checks/predict_flat_nested": 1
+      }
+    }
+  ],
+  "methodology": "Fixed conservative replies; ten synthetic cumulative public-training releases and disjoint validation-device shards, not the contest stream. Full validation metrics are audit-only and never passed to selection.",
+  "replay_execution": "Extracted-source official SDK simulated host; release A/B/C first round separately passed inside Docker.",
+  "real_model_api": false,
+  "platform_score_verified": false,
+  "source_url": "https://github.com/lizh060131-oss/smart-training-harness/tree/d7813f6f692bef7f62d689d146a2172c2e65055b/image-releases/image6-c-guard-v1",
+  "swanlab_url": "https://swanlab.cn/@lizh-131/smart-training-harness/runs/08206cddff6002fb"
+}

@@ -1,0 +1,250 @@
+{
+  "archive_sha256": "b0893fb6e5718b9cf5ea3032005c5635fdd1acee6f46f179bae1b4b3738602be",
+  "evaluation": "In-process extracted source, official SDK 1.0.2 simulated host, official public data, fixed JSON model reply",
+  "docker_container_executed": false,
+  "rounds": [
+    {
+      "task": "A",
+      "round": 1,
+      "public_rows": 1244,
+      "parent_clean": {
+        "accuracy": 0.8786173633440515,
+        "macro_f1": 0.7140297220788709
+      },
+      "selected_clean": {
+        "accuracy": 0.8866559485530546,
+        "macro_f1": 0.719259724542134
+      },
+      "retained_parent": false,
+      "trials": 4,
+      "selected_residual": null,
+      "selected_ridge": null,
+      "parent_stress_mixed": {
+        "current": 0.7795813298659791
+      },
+      "reference_stress_mixed": {
+        "current": 0.7795813298659791
+      },
+      "candidate_stress_mixed": {
+        "current": 0.7835038317134264
+      },
+      "cpu_seconds": 0.59375,
+      "elapsed_seconds": 0.6673319000001356,
+      "state_bytes": 1354848,
+      "artifact_bytes": 135042,
+      "sdk_round_passed": true,
+      "prediction_passed": true,
+      "original_image6_clean": {
+        "accuracy": 0.8858520900321544,
+        "macro_f1": 0.7187354630392223
+      },
+      "original_image6_cpu_seconds": 0.890625
+    },
+    {
+      "task": "B",
+      "round": 1,
+      "public_rows": 1679,
+      "parent_clean": {
+        "mae": 563.1058414514887,
+        "rmse": 681.1598326043113
+      },
+      "selected_clean": {
+        "mae": 509.9576250300713,
+        "rmse": 626.3618025540628
+      },
+      "retained_parent": false,
+      "trials": 58,
+      "selected_residual": "boosted-1.0",
+      "selected_ridge": null,
+      "parent_stress_mixed": {
+        "current": 585.8928257651412
+      },
+      "reference_stress_mixed": {
+        "current": 585.8928257651412
+      },
+      "candidate_stress_mixed": {
+        "current": 544.1078206329838
+      },
+      "cpu_seconds": 17.9375,
+      "elapsed_seconds": 18.383160299999872,
+      "state_bytes": 3201924,
+      "artifact_bytes": 84070,
+      "sdk_round_passed": true,
+      "prediction_passed": true,
+      "groups": {
+        "Bearing1_4": {
+          "rows": 122,
+          "parent": {
+            "mae": 175.58693393738474,
+            "rmse": 241.9807988305028
+          },
+          "v20": {
+            "mae": 197.1127686385838,
+            "rmse": 245.36457413763355
+          }
+        },
+        "Bearing2_4": {
+          "rows": 42,
+          "parent": {
+            "mae": 328.14713559610186,
+            "rmse": 390.81504161336534
+          },
+          "v20": {
+            "mae": 229.9534372712412,
+            "rmse": 302.5015703580796
+          }
+        },
+        "Bearing3_4": {
+          "rows": 1515,
+          "parent": {
+            "mae": 600.82569119581,
+            "rmse": 710.8130722393482
+          },
+          "v20": {
+            "mae": 542.9129044793335,
+            "rmse": 653.7691728206468
+          }
+        }
+      },
+      "original_image6_clean": {
+        "mae": 545.6377231695859,
+        "rmse": 657.9026376035969
+      },
+      "original_image6_cpu_seconds": 2.3125
+    },
+    {
+      "task": "C",
+      "round": 1,
+      "public_rows": 23049,
+      "parent_clean": {
+        "mae": 38.89982982666355,
+        "rmse": 52.86857256611151
+      },
+      "selected_clean": {
+        "mae": 37.5575358174811,
+        "rmse": 51.97480818875271
+      },
+      "retained_parent": false,
+      "trials": 46,
+      "selected_residual": 0.0001,
+      "selected_ridge": null,
+      "parent_stress_mixed": {
+        "current": 59.651849905260676
+      },
+      "reference_stress_mixed": {
+        "current": 59.651849905260676
+      },
+      "candidate_stress_mixed": {
+        "current": 57.122315921466715
+      },
+      "cpu_seconds": 29.671875,
+      "elapsed_seconds": 30.245538000001034,
+      "state_bytes": 686381,
+      "artifact_bytes": 69359,
+      "sdk_round_passed": true,
+      "prediction_passed": true,
+      "groups": {
+        "FD001": {
+          "rows": 3210,
+          "parent": {
+            "mae": 34.585928881674825,
+            "rmse": 42.83453261937968
+          },
+          "v20": {
+            "mae": 31.825168284590088,
+            "rmse": 40.83167179019444
+          }
+        },
+        "FD002": {
+          "rows": 7581,
+          "parent": {
+            "mae": 31.619114710891438,
+            "rmse": 41.152059506011675
+          },
+          "v20": {
+            "mae": 30.97878017092444,
+            "rmse": 40.314099272691955
+          }
+        },
+        "FD003": {
+          "rows": 3555,
+          "parent": {
+            "mae": 43.89943560500052,
+            "rmse": 55.355939500721526
+          },
+          "v20": {
+            "mae": 39.56213045546453,
+            "rmse": 51.798478887616085
+          }
+        },
+        "FD004": {
+          "rows": 8703,
+          "parent": {
+            "mae": 44.79080130593441,
+            "rmse": 63.236794880334166
+          },
+          "v20": {
+            "mae": 44.583631692362765,
+            "rmse": 63.46421371446272
+          }
+        }
+      },
+      "original_image6_clean": {
+        "mae": 38.10993084811997,
+        "rmse": 51.83193632662444
+      },
+      "original_image6_cpu_seconds": 17.265625
+    },
+    {
+      "task": "C",
+      "round": 2,
+      "public_rows": 23049,
+      "parent_clean": {
+        "mae": 37.5575358174811,
+        "rmse": 51.97480818875271
+      },
+      "selected_clean": {
+        "mae": 37.601432393317694,
+        "rmse": 52.03563696445329
+      },
+      "retained_parent": false,
+      "trials": 46,
+      "selected_residual": null,
+      "selected_ridge": null,
+      "parent_stress_mixed": {
+        "current": 57.344561046517676
+      },
+      "reference_stress_mixed": {
+        "current": 59.856382240281484
+      },
+      "candidate_stress_mixed": {
+        "current": 57.179285518210136
+      },
+      "cpu_seconds": 20,
+      "elapsed_seconds": 20.668447500000184,
+      "state_bytes": 795963,
+      "artifact_bytes": 69581,
+      "sdk_round_passed": true,
+      "prediction_passed": true
+    }
+  ],
+  "version": "image6-v20-b0893fb6-audit",
+  "scope": "local-public-inprocess",
+  "model_replies": {
+    "v20": {
+      "lr": 0.0005,
+      "epochs": 4,
+      "batch": 256,
+      "data": "replay"
+    },
+    "original_image6": "conservative"
+  },
+  "limitations": [
+    "Extracted Python source with official SDK simulated host; Docker daemon unavailable, so no container execution.",
+    "No real PyTRiO API call and no hidden-label or contest-stage evaluation. Both variants start from identical official parent checkpoints and public train/validation files.",
+    "C round 2 repeats the same public projection to verify state and residual-artifact loading, not a chronological stage-generalization test.",
+    "Public validation is used for candidate selection; these are development metrics, not independent held-out performance."
+  ],
+  "source_sha256": "01b7013d21ef73da45c2f680b8ae571bab552d6b91562823ab85386e5142c73a",
+  "swanlab_url": "https://swanlab.cn/@lizh-131/smart-training-harness/runs/c715aece53b611a7"
+}

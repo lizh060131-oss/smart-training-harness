@@ -1,0 +1,141 @@
+{
+  "scope": "contest-platform-screenshot-summary",
+  "status": "completed",
+  "team": "zwb",
+  "user_reported_image_version": "v20",
+  "platform_submission_version": "v19",
+  "platform_evaluation_attempt": 2,
+  "image_identity_verified": false,
+  "identity_note": "用户确认此为 v20 运行结果；截图标注平台提交版本 v19。尚未取得平台镜像摘要，不能确认与本地 b0893fb6 镜像一致。",
+  "submission_id": "c5fdfe0e8f5b5bea8310f5072ec7e6c6",
+  "evaluation_id": "81da107173db605a78ca42538fa1a9ce",
+  "formal_record_id": "6da0da6d5877f503c35216517201f3e1",
+  "scoring_id": "contest-simplified-abc-v1",
+  "total_score": 46.16,
+  "completed_rounds_per_dataset": 10,
+  "cpu_core_seconds": 525.96,
+  "settled_tokens": 96098,
+  "tasks": {
+    "A": {
+      "score": 61.82,
+      "average_normalized_improvement": 0.3843,
+      "worst_normalized_improvement": 0.0775,
+      "stage_metric": "macro_f1",
+      "stage_values": [
+        0.6055,
+        0.5914,
+        0.6673,
+        0.5794,
+        0.7193,
+        0.5314,
+        0.5307,
+        0.573
+      ]
+    },
+    "B": {
+      "score": 52.77,
+      "average_normalized_improvement": 0.102,
+      "worst_normalized_improvement": -0.103,
+      "stage_metric": "rmse",
+      "unit": "minutes",
+      "stage_values": [
+        815.9406,
+        776.104,
+        115.2946
+      ]
+    },
+    "C": {
+      "score": 23.9,
+      "average_normalized_improvement": -0.9129,
+      "worst_normalized_improvement": -2.348,
+      "stage_metric": "rmse",
+      "unit": "cycles",
+      "stage_values": [
+        54.2948,
+        47.9421,
+        78.4859,
+        55.4798
+      ]
+    }
+  },
+  "previous_image6_platform_result": {
+    "submission_version": "v18",
+    "evaluation_id": "b35d47da1f09d7cc8f3250b9d14f1744",
+    "total": 49.15,
+    "A": 63.56,
+    "B": 49.95,
+    "C": 33.95,
+    "cpu": 256.15,
+    "tokens": 22314,
+    "stages": {
+      "A": [
+        0.6055,
+        0.5865,
+        0.6859,
+        0.5748,
+        0.7172,
+        0.7438,
+        0.7359,
+        0.6325
+      ],
+      "B": [
+        786.7952,
+        823.1962,
+        154.0587
+      ],
+      "C": [
+        53.5518,
+        47.4501,
+        76.795,
+        55.2546
+      ]
+    }
+  },
+  "comparison": {
+    "score_delta": {
+      "total": -2.99,
+      "A": -1.74,
+      "B": 2.82,
+      "C": -10.05
+    },
+    "cpu_ratio": 2.053328128049971,
+    "token_ratio": 4.306623644348839,
+    "stage_delta": {
+      "A": [
+        0,
+        0.0049,
+        -0.0186,
+        0.0046,
+        0.0021,
+        -0.2124,
+        -0.2052,
+        -0.0595
+      ],
+      "B": [
+        29.1454,
+        -47.0922,
+        -38.7641
+      ],
+      "C": [
+        0.743,
+        0.492,
+        1.6909,
+        0.2252
+      ]
+    },
+    "hybrid_old_A_C_new_B_if_reproduced": 50.09333333333334
+  },
+  "provenance": {
+    "type": "user-provided screenshot transcribed by assistant",
+    "file_name": "codex-clipboard-8f32748a-adc2-4304-b973-104e8af45d9e.png",
+    "raw_round_logs_available": false,
+    "screenshot_sha256": "149bfa3b731bf92c004115d9d8439964382892a18f8e72f799ec3c51f2f04700"
+  },
+  "limitations": [
+    "此记录是赛事平台截图汇总，不是本地运行结果。",
+    "两次评测计分口径标识相同；数据流、随机性及镜像摘要尚未逐项核对，差异不能直接全部归因于代码。",
+    "阶段顺序不是训练轮次，不能从截图判断哪一轮发生遗忘。",
+    "混合分项分数只是条件算术推算，不是混合镜像实测成绩。"
+  ],
+  "swanlab_url": "https://swanlab.cn/@lizh-131/smart-training-harness/runs/133bb884973b15e7"
+}
